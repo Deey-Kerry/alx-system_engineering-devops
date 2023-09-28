@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Bash script that displays:content of the current dir In a list format
+for file in *
+do
+	echo -e "$file" | cut -d "-" -f2
+done
