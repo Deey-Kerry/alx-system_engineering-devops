@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Bash script that displays:To infinity and beyond,sleep 2,invincible!!!
+
+MSG () {
+	echo -e "I am invincible!!!"
+}
+trap "MSG" SIGTERM
+while true
+do
+	echo -e "To infinity and beyond"
+	sleep 2
+done
