@@ -1,25 +1,12 @@
 #!/usr/bin/env bash
 #Bash script that:Creates the file /var/run/myscript.pid and display it
-PID_FILE="myscript"
-PID_DIR="/var/run"
+echo $$ >> /var/run/myscript.pid
 
-MSG_INT () {
-	echo -e "Y U no love me?!"
-}
+trap "echo 'I hate the kill command'; rm -rf /var/run/myscript.pid; exit"SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "rm -rf /var/run/holbertonscript.pid; exit" SIGQUIT
 
-MSG_QUIT () {
-	rm -rf "${PID_DIR}/${PID_FILE}.pid"
-	echo -e "I hate the kill command"
-	exit 0
-}
-
-trap "MSG_INT" SIGINT
-trap "MSG_QUIT" SIGTERM
-trap "MSG_QUIT" SIGQUIT
-
-echo $$ >> ${PID_DIR}/${PID_FILE}.pid"
-while true
-do
+while true; do
 	echo -e "To infinity and beyond"
 	sleep 2
 done
