@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """Python script that, using this REST API, for an employee"""
-
 import requests
 import sys
-
 
 if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com/"
