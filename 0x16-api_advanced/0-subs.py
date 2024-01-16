@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
     for a given subreddit.
     """
 
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    url = "https://www.reddit.com/r/programming/hot.json".format(subreddit)
     headers = {
         "User-Agent": "YourUserAgent"
         }
