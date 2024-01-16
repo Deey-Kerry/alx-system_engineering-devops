@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""
-queries the Reddit API and returns a list containing the titles
-"""
+"""queries a list of all hot posts on a given Reddit subreddit"""
 import requests
 
 
-def recurse(subreddit, hot_list=[]):
-    """uses pagination for separating pages of responses"""
+def recurse(subreddit, hot_list=[], after="", count=0):
+    """Recurses a list of titles on subreddit."""
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"

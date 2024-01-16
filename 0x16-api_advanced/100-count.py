@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-recursive function that queries the Reddit API, parses the title
-"""
+"""recursive function that queries the Reddit API, parses the title"""
 import json
 import requests
 
