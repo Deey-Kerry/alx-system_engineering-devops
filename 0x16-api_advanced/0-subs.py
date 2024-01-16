@@ -1,20 +1,25 @@
 #!/usr/bin/python3
-"""function that queries the Reddit API and returns the no. of subscribers"""
+"""
+function that lists number of subscribers for a given subreddit
+"""
 
-import requests
-from sys import argv
+from requests import get
 
 
 def number_of_subscribers(subreddit):
-    """Return the total number of subscribers on a given subreddit."""
-    user = {'User-Agent': 'Kay'}
-    url = requests.get('https://www.reddit.com/r/{}/about.json'
-                       .format(subreddit), headers=user).json()
-    try:
-        return url.get('data').get('subscribers')
-    except Exception:
+    """
+    function that queries the Reddit API and returns the number of subscribers
+    for a given subreddit.
+    """
+
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {
+        "User-Agent": "YourUserAgent"
+        }
+    response = get(url, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        subscribers = data['data']['subscribers']
+        return subscribers
+    else:
         return 0
-
-
-if __name__ == "__main__":
-    number_of_subscribers(argv[1])
